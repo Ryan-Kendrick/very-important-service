@@ -25,10 +25,14 @@ nav a {
 }
 
 .logo img {
+  display: flex;
+  justify-content: center;
   position: fixed;
   width: 15vw;
   top: 12px;
   left: 44%;
+  color: #ffffff;
+  margin: auto;
 }
 
 nav li {
@@ -37,14 +41,6 @@ nav li {
   margin-right: 1vw;
   list-style: none;
   display: inline-block;
-  text-decoration: none;
-}
-
-button {
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  padding: 1vw;
-  color: #fd4b59;
   text-decoration: none;
 }
 
@@ -75,7 +71,6 @@ button {
   min-height: 3rem;
   padding: calc(.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
-  text-decoration: none;
   transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
@@ -83,6 +78,7 @@ button {
   vertical-align: baseline;
   width: auto;
 }
+
 
 button:hover,
 button:focus {
@@ -100,6 +96,10 @@ button:active {
   background-color: #fd4b59;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
+}
+
+.disabled button {
+  background-color: #e6e6e6;
 }
 
 .info {
@@ -132,10 +132,45 @@ button:active {
   border: 2px solid #000000;
   border-radius: 1rem;
   width: 50vw;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+.tos h2 {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #000000;
+  margin-top: 0;
+  border-radius: .7rem;
+}
+
+.form {
+  margin: 4vw;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4vh;
+  margin-right: 4vw;
 }
 
 .terms {
   margin: 4vw;
   height: 200px;
   overflow: auto;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+.done {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  width: 50vw;
+  margin: auto;
+  margin-top: 40vh;
 }

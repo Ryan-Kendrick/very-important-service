@@ -1,15 +1,40 @@
 import { ChangeEvent, useState, FormEvent } from 'react'
 
+interface Form {
+  firstName: string
+  lastName: string
+  company: string
+  email: string
+  phone: number
+  password: string
+  reenterPassword: string
+}
+
 function Form() {
-  function changeHandler() {}
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    company: '',
+    email: '',
+    phone: 0,
+    password: '',
+    reenterPassword: '',
+  })
+
+  function changeHandler(e: ChangeEvent<HTMLInputElement>) {
+    setFormData({
+      [e.target.name]: e.target.value,
+      ...formData,
+    })
+  }
 
   function submitHandler(e: FormEvent) {
     e.preventDefault()
   }
 
   return (
-    <>
-      <h1>Presents for Kelly</h1>
+    <div className="tos">
+      <h2>Very Important Form</h2>
       <div className="form">
         <form onSubmit={submitHandler}>
           <div className="name">
@@ -18,7 +43,7 @@ function Form() {
               <input
                 id="firstName"
                 name="firstName"
-                value=""
+                value={formData.firstName}
                 onChange={changeHandler}
               />
             </div>
@@ -27,7 +52,7 @@ function Form() {
               <input
                 id="lastName"
                 name="lastName"
-                value=""
+                value={formData.lastName}
                 onChange={changeHandler}
               />
             </div>
@@ -37,20 +62,25 @@ function Form() {
             <input
               id="company"
               name="company"
-              value=""
+              value={formData.company}
               onChange={changeHandler}
             />
           </div>
           <div className="email">
             <label htmlFor="email">Email address:</label>
-            <input id="email" name="email" value="" onChange={changeHandler} />
+            <input
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={changeHandler}
+            />
           </div>
           <div className="phone">
             <label htmlFor="phone">Phone Number:</label>
             <input
               id="phone"
               name="phone"
-              value=""
+              value={formData.phone}
               onChange={changeHandler}
               type="number"
             />
@@ -60,7 +90,7 @@ function Form() {
             <input
               id="password"
               name="password"
-              value=""
+              value={formData.password}
               onChange={changeHandler}
             />
             <div className="reenterPassword">
@@ -68,17 +98,19 @@ function Form() {
               <input
                 id="reenterPassword"
                 name="reenterPassword"
-                value=""
+                value={formData.reenterPassword}
                 onChange={changeHandler}
               />
             </div>
           </div>
-          <button type="submit" className="formButton">
-            Sign Up
-          </button>
+          <div className="form-buttons">
+            <button type="submit" className="formButton">
+              Sign Up
+            </button>
+          </div>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 

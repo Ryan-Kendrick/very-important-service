@@ -12,7 +12,7 @@ interface Form extends FormData {
   reenterPasswordValid: boolean
 }
 
-interface Errors {
+export interface Errors {
   firstName: string
   lastName: string
   company: string
@@ -22,7 +22,7 @@ interface Errors {
   reenterPassword: string
 }
 
-interface FormData {
+export interface FormData {
   firstName: string
   lastName: string
   company: string

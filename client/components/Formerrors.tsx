@@ -1,17 +1,23 @@
-import {Errors} from './Form'
+import { Errors } from './Form'
 
 function Formerrors(props: Errors) {
+  console.log('active')
   const formErrors = props
-    {Object.keys(formErrors).map((fieldName, i) => {
-      const fieldName as keyof Errors
-      if(formErrors[fieldName].length > 0){
+  {
+    Object.keys(formErrors).map((fieldName, i) => {
+      const prop = fieldName as keyof Errors
+      if (formErrors[prop].length > 0) {
+        console.log('error found')
         return (
-          <p key={i}>{fieldName} {formErrors[fieldName]}</p>
-        )        
+          <p key={fieldName}>
+            {prop} {formErrors[prop]}
+          </p>
+        )
       } else {
-        return '';
+        return ''
       }
-    })}
+    })
+  }
 }
 
 export default Formerrors

@@ -4,8 +4,15 @@ import { Link } from 'react-router-dom'
 function ToS() {
   const [read, setRead] = useState(false)
 
-  const handleScroll = (e: UIEvent<HTMLElement>) => {
-    console.log(e)
+  const handleScroll = (e: UIEvent<HTMLDivElement>) => {
+    if (!read) {
+      if (
+        e.target.scrollTop ===
+        e.target.scrollHeight - e.target.clientHeight
+      ) {
+        setRead(true)
+      }
+    }
   }
 
   return (

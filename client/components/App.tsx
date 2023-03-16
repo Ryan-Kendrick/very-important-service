@@ -9,7 +9,7 @@ function App() {
             <li><a href="#contact">Contact</a></li>
           </ul>
           <div className="navButtons">
-            <button className="navButton button-5" role="button">LOG IN</button>
+            <button className="navButton">LOG IN</button>
             <button className="navButton">SIGN UP</button>
           </div>
         </nav>

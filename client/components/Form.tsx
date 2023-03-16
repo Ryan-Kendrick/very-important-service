@@ -19,12 +19,13 @@ function Form() {
     phone: 0,
     password: '',
     reenterPassword: '',
-  })
+  } as Form)
 
   function changeHandler(e: ChangeEvent<HTMLInputElement>) {
+    console.log(e.target.value)
     setFormData({
-      [e.target.name]: e.target.value,
       ...formData,
+      [e.target.name]: e.target.value,
     })
   }
 

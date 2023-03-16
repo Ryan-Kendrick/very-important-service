@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Splash from './Splash'
 import ToS from './ToS'
 import Form from './Form'
+import Done from './Done'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/" element={<Splash />}></Route>
           <Route path="/tos" element={<ToS />}></Route>
           <Route path="/form" element={<Form />}></Route>
+          <Route path="/done" element={<Done />}></Route>
         </Routes>
       </main>
     </>

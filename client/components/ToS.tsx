@@ -60,7 +60,10 @@ function ToS() {
         </ol>
       </div>
       <div className="form-buttons">
-        <Link to="/form" className={read ? 'enabled' : 'disabled'}>
+        <Link
+          to={read ? '/form' : ''}
+          className={read ? 'enabled' : 'disabled'}
+        >
           <button>Accept</button>
         </Link>
         <Link to="/">

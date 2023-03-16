@@ -5,6 +5,7 @@ function ToS() {
   const [read, setRead] = useState(false)
   return (
     <div className="tos">
+      <h2>Terms of Service</h2>
       <div className="terms">
         <ol>
           <li>
@@ -46,9 +47,11 @@ function ToS() {
         </ol>
       </div>
       <Link to="/form" className="accept">
-        Accept
+        <button>Accept</button>
       </Link>
-      <Link to="/">Reject</Link>
+      <Link to="/">
+        <button>Reject</button>
+      </Link>
     </div>
   )
 }

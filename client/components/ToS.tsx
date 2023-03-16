@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function ToS() {
+  const [read, setRead] = useState(false)
   return (
     <div className="tos">
       <div className="terms">
@@ -43,7 +45,9 @@ function ToS() {
           </li>
         </ol>
       </div>
-      <Link to="/form">Agree</Link>
+      <Link to="/form" className="accept">
+        Accept
+      </Link>
       <Link to="/">Reject</Link>
     </div>
   )

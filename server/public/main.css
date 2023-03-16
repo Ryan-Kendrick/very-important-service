@@ -1,5 +1,52 @@
 body {
-  background-color: #faf8f1;
-  color: #0a1520;
+  background: rgb(183,33,255);
+  background: linear-gradient(221deg, rgba(183,33,255,1) 20%, rgba(9,173,234,1) 100%);
+  color: #fff;
   font-family: 'Poppins', sans-serif;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo img {
+  position: fixed;
+  height: 6vh;
+  top: 12px;
+  left: 45%;
+}
+
+nav li {
+  font-size: larger;
+  float: left;
+  margin-right: 1vw;
+  list-style: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.info {
+  margin-top: 20vh; 
+  margin-left: 20vw; 
+  margin-right: 50vw;
+  display: flex;
+}
+
+.words {
+  display: flex;
+  flex-direction: column;
+  min-width: 24vw;
+}
+
+.manImage {
+  width: 50vw;
+  object-fit: contain;
 }

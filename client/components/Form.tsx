@@ -1,6 +1,28 @@
 import { ChangeEvent, useState, FormEvent } from 'react'
+import Formerrors from './Formerrors'
 
-interface Form {
+interface Form extends FormData {
+  formErrors: Errors
+  firstNameValid: boolean
+  lastNameValid: boolean
+  companyValid: boolean
+  emailValid: boolean
+  phoneValid: boolean
+  passwordValid: boolean
+  reenterPasswordValid: boolean
+}
+
+interface Errors {
+  firstName: string
+  lastName: string
+  company: string
+  email: string
+  phone: string
+  password: string
+  reenterPassword: string
+}
+
+interface FormData {
   firstName: string
   lastName: string
   company: string
@@ -19,6 +41,22 @@ function Form() {
     phone: 0,
     password: '',
     reenterPassword: '',
+    formErrors: {
+      firstName: '',
+      lastName: '',
+      company: '',
+      email: '',
+      phone: '',
+      password: '',
+      reenterPassword: '',
+    },
+    firstNameValid: false,
+    lastNameValid: false,
+    companyValid: false,
+    emailValid: false,
+    phoneValid: false,
+    passwordValid: false,
+    reenterPasswordValid: false,
   } as Form)
 
   function changeHandler(e: ChangeEvent<HTMLInputElement>) {
@@ -110,6 +148,9 @@ function Form() {
             </button>
           </div>
         </form>
+        <div className="formErrors">
+          <Formerrors formErrors={formData.formErrors} />
+        </div>
       </div>
     </div>
   )

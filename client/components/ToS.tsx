@@ -48,3 +48,5 @@ function ToS() {
     </div>
   )
 }
+
+export default ToS

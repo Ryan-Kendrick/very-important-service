@@ -45,10 +45,15 @@ button {
   font-weight: bold;
   padding: 1vw;
   color: #fd4b59;
+  text-decoration: none;
 }
 
 .navButtons {
   padding-right: 1vw;
+}
+
+.navButton {
+  margin-right: 1.5vw;
 }
 
 button {
@@ -97,10 +102,6 @@ button:active {
   transform: translateY(0);
 }
 
-.navButton {
-  margin-right: 1.5vw;
-}
-
 .info {
   margin-top: 20vh; 
   margin-left: 20vw; 
@@ -123,4 +124,16 @@ button:active {
 .manImage {
   width: 50vw;
   object-fit: contain;
+}
+
+.tos {
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 1rem;
+  width: 50vw;
+}
+
+.terms {
+  padding: 4vw;
 }

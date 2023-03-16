@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 
-// import Splash from './Splash'
+import Splash from './Splash'
 import ToS from './ToS'
 import Form from './Form'
 
@@ -30,24 +30,13 @@ function App() {
           <img src="/images/logo.svg" alt="" />
         </a>
       </header>
-      <div className="info">
-        <div className="words">
-          <h1>Very Important Service:</h1>
-          <p>
-            React Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-            hic excepturi tempora fuga molestiae sed veritatis consectetur animi
-            corporis voluptas explicabo quae odit, aspernatur itaque natus
-            doloremque omnis cum praesentium! has begun!
-          </p>
-          <button>SIGN UP NOW!</button>
-        </div>
-        <img className="manImage" src="/images/illustration.png" alt="" />
-      </div>
-      <Routes>
-        {/* <Route path="/" element={<Splash />}></Route> */}
-        <Route path="/tos" element={<ToS />}></Route>
-        <Route path="/form" element={<Form />}></Route>
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Splash />}></Route>
+          <Route path="/tos" element={<ToS />}></Route>
+          <Route path="/form" element={<Form />}></Route>
+        </Routes>
+      </main>
     </>
   )
 }

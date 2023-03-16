@@ -47,8 +47,7 @@ function Form() {
           </div>
           <div className="phone">
             <label htmlFor="phone">Phone Number:</label>
-            <inputtext-card
-              form-button
+            <input
               id="phone"
               name="phone"
               value=""

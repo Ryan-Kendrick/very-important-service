@@ -1,15 +1,17 @@
-import { FormEvent, useState } from 'react'
+import { UIEvent, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function ToS() {
   const [read, setRead] = useState(false)
 
-  const handleScroll = (e: FormEvent) => {}
+  const handleScroll = (e: UIEvent<HTMLElement>) => {
+    console.log(e)
+  }
 
   return (
     <div className="tos">
       <h2>Terms of Service</h2>
-      <div className="terms">
+      <div className="terms" onScroll={handleScroll}>
         <ol>
           <li>
             We reserve the right to collect your data, then sell it to third
@@ -50,7 +52,7 @@ function ToS() {
           </li>
         </ol>
       </div>
-      <div id="tos-buttons">
+      <div className="form-buttons">
         <Link to="/form" className={read ? 'enabled' : 'disabled'}>
           <button>Accept</button>
         </Link>

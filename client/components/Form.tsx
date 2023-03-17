@@ -1,5 +1,6 @@
 import { ChangeEvent, useState, FormEvent } from 'react'
 import Formerrors from './Formerrors'
+import { Link, useNavigate } from 'react-router-dom'
 
 interface Form extends FormData {
   formErrors: Errors
@@ -59,8 +60,9 @@ function Form() {
     reenterPasswordValid: false,
   } as Form)
 
+  const nav = useNavigate()
+
   function changeHandler(e: ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.value)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -102,12 +104,26 @@ function Form() {
     formData.formErrors.reenterPassword = formData.reenterPasswordValid
       ? ''
       : 'Password must match'
-
+    if (linkValid()) {
+      nav('/captcha')
+    }
     setFormData({ ...formData })
   }
 
   function setFormFields(formFields: FormData): void {
     setFormData({ ...formData, ...formFields })
+  }
+
+  function linkValid() {
+    return (
+      formData.firstNameValid &&
+      formData.lastNameValid &&
+      formData.companyValid &&
+      formData.emailValid &&
+      formData.passwordValid &&
+      formData.phoneValid &&
+      formData.reenterPasswordValid
+    )
   }
 
   return (

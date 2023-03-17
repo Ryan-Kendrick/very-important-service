@@ -174,3 +174,13 @@ a:link{
   margin: auto;
   margin-top: 40vh;
 }
+
+.c-image {
+  padding-left: 130px;
+  margin: auto;
+}
+
+.captcha {
+  padding-top: 30px;
+  padding-bottom: 40px;
+}

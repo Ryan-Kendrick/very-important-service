@@ -74,17 +74,32 @@ function Form() {
       ? ''
       : 'First Name must not be blank'
     formData.lastNameValid = formData.lastName !== ''
-    formData.formErrors.lastName = formData.firstNameValid 'Last Name must not be blank'
-    
+    formData.formErrors.lastName = formData.lastNameValid
+      ? ''
+      : 'Last Name must not be blank'
+
     formData.companyValid = formData.company !== ''
-    if (!formData.companyValid) {
-      formData.formErrors.company = 'Company must not be blank'
-    }
+    formData.formErrors.company = formData.companyValid
+      ? ''
+      : 'Company Name must not be blank'
     formData.emailValid = formData.email !== ''
+    formData.formErrors.email = formData.emailValid
+      ? ''
+      : 'Email must not be blank'
     formData.phoneValid = formData.phone !== ''
+
+    formData.formErrors.phone = formData.phoneValid
+      ? ''
+      : 'Phone must not be blank'
     formData.passwordValid = formData.password !== ''
+    formData.formErrors.password = formData.passwordValid
+      ? ''
+      : 'Password must not be blank'
     formData.reenterPasswordValid =
       formData.reenterPassword === formData.password
+    formData.formErrors.reenterPassword = formData.reenterPasswordValid
+      ? ''
+      : 'Password must match'
 
     setFormData({ ...formData })
   }

@@ -45,7 +45,7 @@ function Form() {
       firstName: '',
       lastName: '',
       company: '',
-      email: '',
+      email: 'not a valid email',
       phone: '',
       password: '',
       reenterPassword: '',
@@ -151,7 +151,7 @@ function Form() {
           </div>
         </form>
         <div className="formErrors">
-          <Formerrors formErrors={formData.formErrors} />
+          <Formerrors {...formData.formErrors} />
         </div>
       </div>
     </div>

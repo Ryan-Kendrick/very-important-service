@@ -27,7 +27,7 @@ export interface FormData {
   lastName: string
   company: string
   email: string
-  phone: number
+  phone: string
   password: string
   reenterPassword: string
 }
@@ -38,14 +38,14 @@ function Form() {
     lastName: '',
     company: '',
     email: '',
-    phone: 0,
+    phone: '',
     password: '',
     reenterPassword: '',
     formErrors: {
       firstName: '',
       lastName: '',
       company: '',
-      email: 'not a valid email',
+      email: '',
       phone: '',
       password: '',
       reenterPassword: '',
@@ -69,6 +69,45 @@ function Form() {
 
   function submitHandler(e: FormEvent) {
     e.preventDefault()
+    formData.firstNameValid = formData.firstName !== ''
+    formData.formErrors.firstName = formData.firstNameValid
+      ? ''
+      : 'First Name must not be blank'
+    formData.lastNameValid = formData.lastName !== ''
+    formData.formErrors.lastName = formData.lastNameValid
+      ? ''
+      : 'Last Name must not be blank'
+
+    formData.companyValid = formData.company !== ''
+    formData.formErrors.company = formData.companyValid
+      ? ''
+      : 'Company Name must not be blank'
+    formData.emailValid = formData.email !== ''
+    formData.formErrors.email = formData.emailValid
+      ? ''
+      : 'Email must not be blank'
+    formData.phoneValid = formData.phone !== ''
+    formData.formErrors.phone = formData.phoneValid
+      ? ''
+      : 'Phone must not be blank'
+    if (!formData.phone.indexOf(' ')) {
+      formData.formErrors.phone = 'Phone must not be blank'
+    }
+    formData.passwordValid = formData.password !== ''
+    formData.formErrors.password = formData.passwordValid
+      ? ''
+      : 'Password must not be blank'
+    formData.reenterPasswordValid =
+      formData.reenterPassword === formData.password
+    formData.formErrors.reenterPassword = formData.reenterPasswordValid
+      ? ''
+      : 'Password must match'
+
+    setFormData({ ...formData })
+  }
+
+  function setFormFields(formFields: FormData): void {
+    setFormData({ ...formData, ...formFields })
   }
 
   return (
@@ -122,7 +161,6 @@ function Form() {
                 name="phone"
                 value={formData.phone}
                 onChange={changeHandler}
-                type="number"
               />
             </div>
             <div className="password">
@@ -132,6 +170,7 @@ function Form() {
                 name="password"
                 value={formData.password}
                 onChange={changeHandler}
+                type="password"
               />
               <div className="reenterPassword">
                 <label htmlFor="reenterPassword">Reenter password:</label>
@@ -140,6 +179,7 @@ function Form() {
                   name="reenterPassword"
                   value={formData.reenterPassword}
                   onChange={changeHandler}
+                  type="password"
                 />
               </div>
             </div>

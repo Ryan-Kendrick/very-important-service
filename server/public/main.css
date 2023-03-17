@@ -175,9 +175,12 @@ a:link{
   margin-top: 40vh;
 }
 
+.formErrors {
+  color: red;
+}
+
 .c-image {
   padding-left: 130px;
-  margin: auto;
 }
 
 .captcha {

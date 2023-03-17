@@ -1,5 +1,6 @@
 import { ChangeEvent, useState, FormEvent } from 'react'
 import Formerrors from './Formerrors'
+import Link from 'react'
 
 interface Form extends FormData {
   formErrors: Errors
@@ -110,6 +111,21 @@ function Form() {
     setFormData({ ...formData, ...formFields })
   }
 
+  function linkValid() {
+    if (
+      formData.firstNameValid &&
+      formData.lastNameValid &&
+      formData.companyValid &&
+      formData.emailValid &&
+      formData.passwordValid &&
+      formData.phoneValid &&
+      formData.reenterPasswordValid
+    ) {
+      return true
+    }
+    return false
+  }
+
   return (
     <div className="tos">
       <h2>Very Important Form</h2>
@@ -185,9 +201,11 @@ function Form() {
             </div>
           </div>
           <div className="form-buttons">
-            <button type="submit" className="formButton">
-              Sign Up
-            </button>
+            <Link to={linkValid() ? '/captcha' : ''}>
+              <button type="submit" className="formButton">
+                Sign Up
+              </button>
+            </Link>
           </div>
         </form>
         <div className="formErrors">

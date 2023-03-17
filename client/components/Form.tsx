@@ -87,10 +87,12 @@ function Form() {
       ? ''
       : 'Email must not be blank'
     formData.phoneValid = formData.phone !== ''
-
     formData.formErrors.phone = formData.phoneValid
       ? ''
       : 'Phone must not be blank'
+    if (!formData.phone.indexOf(' ')) {
+      formData.formErrors.phone = 'Phone must not be blank'
+    }
     formData.passwordValid = formData.password !== ''
     formData.formErrors.password = formData.passwordValid
       ? ''
@@ -159,7 +161,6 @@ function Form() {
                 name="phone"
                 value={formData.phone}
                 onChange={changeHandler}
-                type="number"
               />
             </div>
             <div className="password">

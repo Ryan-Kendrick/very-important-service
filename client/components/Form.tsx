@@ -27,7 +27,7 @@ export interface FormData {
   lastName: string
   company: string
   email: string
-  phone: number
+  phone: string
   password: string
   reenterPassword: string
 }
@@ -38,14 +38,14 @@ function Form() {
     lastName: '',
     company: '',
     email: '',
-    phone: 0,
+    phone: '',
     password: '',
     reenterPassword: '',
     formErrors: {
       firstName: '',
       lastName: '',
       company: '',
-      email: 'not a valid email',
+      email: '',
       phone: '',
       password: '',
       reenterPassword: '',
@@ -69,6 +69,28 @@ function Form() {
 
   function submitHandler(e: FormEvent) {
     e.preventDefault()
+    formData.firstNameValid = formData.firstName !== ''
+    formData.formErrors.firstName = formData.firstNameValid
+      ? ''
+      : 'First Name must not be blank'
+    formData.lastNameValid = formData.lastName !== ''
+    formData.formErrors.lastName = formData.firstNameValid 'Last Name must not be blank'
+    
+    formData.companyValid = formData.company !== ''
+    if (!formData.companyValid) {
+      formData.formErrors.company = 'Company must not be blank'
+    }
+    formData.emailValid = formData.email !== ''
+    formData.phoneValid = formData.phone !== ''
+    formData.passwordValid = formData.password !== ''
+    formData.reenterPasswordValid =
+      formData.reenterPassword === formData.password
+
+    setFormData({ ...formData })
+  }
+
+  function setFormFields(formFields: FormData): void {
+    setFormData({ ...formData, ...formFields })
   }
 
   return (
@@ -132,6 +154,7 @@ function Form() {
                 name="password"
                 value={formData.password}
                 onChange={changeHandler}
+                type="password"
               />
               <div className="reenterPassword">
                 <label htmlFor="reenterPassword">Reenter password:</label>
@@ -140,6 +163,7 @@ function Form() {
                   name="reenterPassword"
                   value={formData.reenterPassword}
                   onChange={changeHandler}
+                  type="password"
                 />
               </div>
             </div>

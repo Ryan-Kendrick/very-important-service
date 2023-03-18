@@ -1,6 +1,7 @@
 import { ChangeEvent, useState, FormEvent } from 'react'
 import Formerrors from './Formerrors'
 import { Link, useNavigate } from 'react-router-dom'
+import { formatDiagnosticsWithColorAndContext } from 'typescript'
 
 interface Form extends FormData {
   formErrors: Errors
@@ -88,13 +89,16 @@ function Form() {
     formData.formErrors.email = formData.emailValid
       ? ''
       : 'Email must not be blank'
-    formData.phoneValid = formData.phone !== ''
-    formData.formErrors.phone = formData.phoneValid
-      ? ''
-      : 'Phone must not be blank'
-    if (!formData.phone.indexOf(' ')) {
+    // Phone checks
+    if (formData.phone == '') {
       formData.formErrors.phone = 'Phone must not be blank'
+    } else if (noSpace(formData.phone)) {
+      formData.formErrors.phone = 'Please space out your phone number'
+    } else {
+      formData.formErrors.phone = ''
     }
+
+    formData.phoneValid = formData.formErrors.phone === ''
     formData.passwordValid = formData.password !== ''
     formData.formErrors.password = formData.passwordValid
       ? ''
@@ -108,6 +112,10 @@ function Form() {
       nav('/captcha')
     }
     setFormData({ ...formData })
+  }
+
+  function noSpace(s: string): boolean {
+    return !/\s/g.test(s)
   }
 
   function setFormFields(formFields: FormData): void {
